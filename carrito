@@ -1,0 +1,41 @@
+ let carrito = []
+
+function agregarProducto(nombre, precio) {
+    const nuevoProducto = {
+        nombre: nombre,
+        precio: precio
+    };
+    carrito.push(nuevoProducto);
+    console.log(`Producto "${nombre}" agregado al carrito.`);
+
+   
+}
+
+
+function mostrarCarrito() {
+
+    let total = 0;
+
+    listaULL = document.getElementById("lista-carrito");
+        listaULL.innerHTML = "";
+
+    console.log("Carrito de compras:");
+    // Aquí se mostrarían los productos agregados al carrito
+     for (let producto of carrito) {
+       
+        listaULL.innerHTML += `<li>${producto.nombre} - $${producto.precio}</li>`;    
+        total += producto.precio;
+    }
+
+      
+        document.getElementById("total").textContent = total;
+}
+
+function enviarPorWhatsapp() {
+    let mensaje = "Hola, me gustaría hacer un pedido:\n";
+
+    for (let producto of carrito) {
+        mensaje += `- ${producto.nombre} - $${producto.precio}\n`;
+    }
+    window.open(`https://wa.me/3326519477?text=${encodeURIComponent(mensaje)}`);
+     }
