@@ -1,0 +1,68 @@
+/* ===== IMPORT FUENTE ===== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+
+
+body{
+    background-color: #fdf4f8;
+    font-family: 'Lato', sans-serif;
+     color: #5c3d4e;
+}
+.navbar {
+    background-color: #fce4ef !important;
+    border-bottom: 1.5px solid #f4b8d0;
+    padding: 1rem 1.5rem;
+}
+.nav-link {
+    color: #b07090 !important;
+    font-weight: 400;
+    font-size: 0.95rem;
+    margin-right: 0.5rem;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+}
+.nav-link:hover
+.nav-link:active
+.nav-link:focus
+ {
+    color: #b07090 !important;
+    font-weight: 400;
+    font-size: 0.95rem;
+    margin-right: 0.5rem;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+
+}
+section.container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Botones */
+.btn-primary {
+    background-color: #f4a7c0;
+    border-color: #f4a7c0;
+    color: #fff;
+    border-radius: 50px;
+    padding: 0.55rem 1.75rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+    box-shadow: 0 4px 12px rgba(244, 167, 192, 0.35);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    section.container.mt-5:first-of-type h1 {
+        font-size: 2.6rem;
+    }
+ 
+    #menu h2,
+    #contacto h2 {
+        font-size: 2.2rem;
+    }
+}
+ 
