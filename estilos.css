@@ -66,6 +66,38 @@ section.container {
         font-size: 2.2rem;
     }
 }
+
+/* ===== CONTACTO ===== */
+#contacto {
+    text-align: center;
+    background: linear-gradient(160deg, #d6ecf7 0%, #e8d5f5 50%, #fce4ef 100%);
+    padding: 4.5rem 1rem;
+    border-radius: 24px;
+    margin: 0 1rem 3rem;
+    border: 1.5px solid #c8d8f0;
+}
+ 
+#contacto h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #7a9cc4;
+    margin-bottom: 1rem;
+}
+ 
+#contacto p {
+    font-size: 1.05rem;
+    color: #8898b8;
+    max-width: 600px;
+    margin: 0 auto 1.75rem;
+    line-height: 1.8;
+    font-weight: 300;
+}
+ 
+
+
+
+/* ===== FOOTER ===== */
 footer {
     background-color: #f4d0e4;
     border-top: 1.5px solid #e8b8cc;
