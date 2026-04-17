@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
  let carrito = []
 
 function agregarProducto(nombre, precio) {
