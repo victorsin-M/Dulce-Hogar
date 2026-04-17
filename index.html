@@ -40,49 +40,17 @@
         <a href="#menu" class="btn btn-primary">Ver Menú</a>
     </section>
 
-    <section id="menu" class="container mt-5">
-        <h2 class="display-1">Nuestro Menu</h2>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="card">
-                    <img src="https://cdn.pixabay.com/photo/2017/05/07/08/56/cupcake-2291908_1280.jpg" class="card-img-top" alt="Cupcake de Chocolate">
-                    <div class="card-body">
-                        <h5 class="card-title">Cupcake de Chocolate</h5>
-                        <p class="card-text">Delicioso cupcake de chocolate con glaseado de vainilla.</p>
-                        <a href="#" class="btn btn-primary" onclick="agregarProducto('Cupcake de Chocolate', 45)">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card">
-                    <img src="https://sarasellos.com/wp-content/uploads/2024/05/cupcakes-vainilla-1-1024x1024.jpg" class="card-img-top" alt="Cupcake de Vainilla">
-                    <div class="card-body">
-                        <h5 class="card-title">Cupcake de Vainilla</h5>
-                        <p class="card-text">Suave cupcake de vainilla con glaseado de fresa.</p>
-                        <a href="#" class="btn btn-primary" onclick="agregarProducto('Cupcake de Vainilla', 45)">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf65H21G_Q2BWrr8jcm92UF7id_js0Jch3GA&s" class="card-img-top" alt="Cupcake de Fresa">
-                    <div class="card-body">
-                        <h5 class="card-title">Cupcake de Fresa</h5>
-                        <p class="card-text">Delicioso cupcake de fresa con glaseado de chocolate.</p>
-                        <a href="#" class="btn btn-primary" onclick="agregarProducto('Cupcake de Fresa', 45)">Comprar</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-       
-    </section>
+  <section id="menu" class="container mt-5">
+    <h2 class="display-1">Nuestro Menu</h2>
+    <div class="row" id="contenedor-productos"></div>
+</section>
     
     <section id="carrito" class="container mt-5">
         <h2>Mi Carrito</h2>
         <ul id="lista-carrito"></ul>
         <p>Total: $<span id="total">0</span></p>
         <button class="btn btn-success" onclick="mostrarCarrito()">Ver Carrito</button>
+        <button class="btn btn-warning" onclick="pagarConMercadoPago()">Pagar con MercadoPago</button>
         <button class="btn btn-success" onclick="enviarPorWhatsapp()">Enviar pedido por WhatsApp</button>
     </section>
     

@@ -1,16 +1,42 @@
 
  let carrito = []
 
-function agregarProducto(nombre, precio) {
-    const nuevoProducto = {
-        nombre: nombre,
-        precio: precio
-    };
+async function agregarProducto(nombre, precio, id) {
+    const response = await fetch(`/productos/${id}/stock`, { method: 'PATCH' });
+    const data = await response.json();
+    
+    if (data.error) {
+        alert('Sin stock disponible');
+        return;
+    }
+    
+    const nuevoProducto = { nombre, precio };
     carrito.push(nuevoProducto);
-    console.log(`Producto "${nombre}" agregado al carrito.`);
+    mostrarCarrito();
+    await cargarProductos();
+}
+
+async function pagarConMercadoPago() {
+
+    if (carrito.length === 0) {
+    alert('Agrega productos al carrito primero');
+    return;
+}
+    const response = await fetch('/crear-pago', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items: carrito })
+        
+    });
+    
+
+
+    const data = await response.json();
+    window.open(data.init_point);
+}
 
    
-}
+
 
 
 function mostrarCarrito() {
@@ -40,3 +66,32 @@ function enviarPorWhatsapp() {
     }
     window.open(`https://wa.me/3326519477?text=${encodeURIComponent(mensaje)}`);
 }
+
+async function cargarProductos() {
+   
+    const response = await fetch('/productos');
+    const productos = await response.json();
+    
+    
+    const contenedor = document.getElementById('contenedor-productos');
+    contenedor.innerHTML = ''; // Limpiar el contenedor antes de agregar los productos
+    productos.forEach(p => {
+        
+       contenedor.innerHTML += `
+    <div class="col-lg-4">
+        <div class="card">
+            <img src="${p.imagen}" class="card-img-top" alt="${p.nombre}">
+            <div class="card-body">
+                <h5 class="card-title">${p.nombre}</h5>
+                <p class="card-text">${p.descripcion}</p>
+                <p class="card-text"><strong>Stock: ${p.stock}</strong></p>
+                
+                <a href="#" class="btn btn-primary" onclick="agregarProducto('${p.nombre}', ${p.precio}, ${p.id})">Comprar</a>
+                
+            </div>
+        </div>
+    </div>
+`;
+    });
+}
+cargarProductos();
