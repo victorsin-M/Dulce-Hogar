@@ -267,3 +267,7 @@ footer p {
         font-size: 2.2rem;
     }
 }
+
+html {
+    scroll-behavior: smooth;
+}
