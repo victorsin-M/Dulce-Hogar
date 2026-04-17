@@ -66,4 +66,18 @@ section.container {
         font-size: 2.2rem;
     }
 }
+footer {
+    background-color: #f4d0e4;
+    border-top: 1.5px solid #e8b8cc;
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+ 
+footer p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #b07090;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
  
