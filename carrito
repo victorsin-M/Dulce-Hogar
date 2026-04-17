@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  let carrito = []
 
 function agregarProducto(nombre, precio) {
@@ -38,4 +39,4 @@ function enviarPorWhatsapp() {
         mensaje += `- ${producto.nombre} - $${producto.precio}\n`;
     }
     window.open(`https://wa.me/3326519477?text=${encodeURIComponent(mensaje)}`);
-     }
+}
