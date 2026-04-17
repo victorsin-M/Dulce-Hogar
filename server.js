@@ -46,10 +46,15 @@ if (count.total === 0) {
     const stmt = db.prepare('INSERT INTO productos (nombre, precio, descripcion, imagen) VALUES (?, ?, ?, ?)');
     productosIniciales.forEach(p => stmt.run(p.nombre, p.precio, p.descripcion, p.imagen));
 }
-app.patch('/productos/:id/stock-update', (req, res) => {
+app.patch('/productos/:id/stock', (req, res) => {
     const { id } = req.params;
-    const { stock } = req.body;
-    db.prepare('UPDATE productos SET stock = ? WHERE id = ?').run(stock, id);
+    const producto = db.prepare('SELECT * FROM productos WHERE id = ?').get(id);
+    
+    if (!producto || producto.stock <= 0) {
+        return res.json({ error: 'Sin stock disponible' });
+    }
+    
+    db.prepare('UPDATE productos SET stock = stock - 1 WHERE id = ?').run(id);
     res.json({ mensaje: 'Stock actualizado' });
 });
 

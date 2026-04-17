@@ -4,7 +4,6 @@
 async function agregarProducto(nombre, precio, id) {
     const response = await fetch(`/productos/${id}/stock`, { method: 'PATCH' });
     const data = await response.json();
-    
     if (data.error) {
         alert('Sin stock disponible');
         return;
