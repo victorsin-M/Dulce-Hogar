@@ -58,6 +58,13 @@ app.patch('/productos/:id/stock', (req, res) => {
     res.json({ mensaje: 'Stock actualizado' });
 });
 
+app.patch('/productos/:id/stock-update', (req, res) => {
+    const { id } = req.params;
+    const { stock } = req.body;
+    db.prepare('UPDATE productos SET stock = ? WHERE id = ?').run(stock, id);
+    res.json({ mensaje: 'Stock actualizado' });
+});
+
 app.post('/crear-pago', async (req, res) => {
     const { items } = req.body;
     

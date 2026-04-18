@@ -38,6 +38,11 @@ async function pagarConMercadoPago() {
 
 
 
+function eliminarProducto(index) {
+    carrito.splice(index, 1);
+    mostrarCarrito();
+}
+
 function mostrarCarrito() {
 
     let total = 0;
@@ -47,9 +52,9 @@ function mostrarCarrito() {
 
     console.log("Carrito de compras:");
     // Aquí se mostrarían los productos agregados al carrito
-     for (let producto of carrito) {
-       
-        listaULL.innerHTML += `<li>${producto.nombre} - $${producto.precio}</li>`;    
+     for (let i = 0; i < carrito.length; i++) {
+        let producto = carrito[i];
+        listaULL.innerHTML += `<li>${producto.nombre} - $${producto.precio} <button class="btn btn-danger btn-sm" onclick="eliminarProducto(${i})">Eliminar</button></li>`;    
         total += producto.precio;
     }
 
